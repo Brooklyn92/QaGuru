@@ -1,5 +1,6 @@
 package hw4.tests;
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
@@ -12,6 +13,8 @@ public class StudentRegistrationWitchFakerTests extends TestBase {
     String lastName=faker.name().lastName();
     String address=faker.address().streetAddress();
     String phone=faker.numerify("8#########");
+
+    @Tag("HW10")
     @Test
     public void testing(){
         registrationPage.openPage();
