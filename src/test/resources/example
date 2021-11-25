@@ -1,0 +1,9 @@
+$$(byXpath("//select[@class='react-datepicker__month-select']/child::option"))
+//                   .stream()
+//                   .filter(val->val.has(text("December")))
+//                   .findFirst()
+//                   .orElseThrow(NoSuchElementException::new)
+//                   .click();
+
+
+filter(Condition.text("December")
