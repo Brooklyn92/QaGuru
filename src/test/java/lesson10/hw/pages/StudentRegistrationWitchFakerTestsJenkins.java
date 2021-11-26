@@ -9,7 +9,7 @@ import java.util.Locale;
 
 import static hw4.tests.TestData.email;
 
-public class StudentRegistrationWitchFakerTests extends TestBase1 {
+public class StudentRegistrationWitchFakerTestsJenkins extends TestBase1 {
     Faker faker = new Faker(new Locale("ru"));
     String firstName = faker.name().firstName();
     String lastName=faker.name().lastName();
