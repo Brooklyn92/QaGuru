@@ -25,5 +25,6 @@ public class TestBase1 {
         Attach.screenshotAs("Last Screenshot");
         Attach.browserConsoleLogs();
         Attach.pageSource();
+        Attach.addVideo();
     }
 }
