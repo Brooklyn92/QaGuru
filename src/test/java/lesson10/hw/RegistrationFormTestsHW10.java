@@ -63,7 +63,7 @@ public class RegistrationFormTestsHW10 extends TestBase1 {
             });
             step("Загружаем изображение", () ->
                     $("#uploadPicture").uploadFromClasspath("img/" + picture));
-            step("Set address", () -> {
+            step("Вводим адресс", () -> {
                 $("#currentAddress").val(currentAddress);
                 $("#state").scrollTo().click();
                 $("#stateCity-wrapper").$(byText(state)).click();
