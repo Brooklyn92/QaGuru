@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationPage1 {
     //locators
@@ -33,8 +34,11 @@ public class RegistrationPage1 {
     //actions
     //========================================CHAIN PAGE OBJECT==============================================
     public void openPage(){
-        open("https://demoqa.com/automation-practice-form");
-        formTitle.shouldHave(text(FORM_TITLE));
+        step("Открываем страницу с формой", () -> {
+            open("https://demoqa.com/automation-practice-form");
+            formTitle.shouldHave(text(FORM_TITLE));
+
+                });
     }
 
     public CalendarComponent calendar=new CalendarComponent();
