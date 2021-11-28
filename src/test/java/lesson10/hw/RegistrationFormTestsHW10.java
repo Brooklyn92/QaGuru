@@ -8,7 +8,7 @@ import static io.qameta.allure.Allure.step;
 
 import lesson10.TestBase1;
 
-public class RegistrationFormTests extends TestBase1 {
+public class RegistrationFormTestsHW10 extends TestBase1 {
     Faker faker = new Faker();
 
     String firstName = faker.name().firstName(),
