@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationPage {
     //locators
@@ -46,9 +47,11 @@ public class RegistrationPage {
         lastName.setValue(inputLastName);
         return this;
     }
-
-    public RegistrationPage typeEmail(String inputEmail){
-        email.setValue(inputEmail);
+//================ПРИМЕР ПРОПИСИ СТЕПА В МЕТОДЕ С ВОЗВРАЩАЕМЫМ ЗНАЧЕНИЕМ=========================
+    public RegistrationPage typeEmail(String inputEmail) {
+        step("Вводим емайл", () -> {
+            email.setValue(inputEmail);
+        });
         return this;
     }
 
