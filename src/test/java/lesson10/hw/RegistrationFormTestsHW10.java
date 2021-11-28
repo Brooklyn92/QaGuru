@@ -30,7 +30,7 @@ public class RegistrationFormTestsHW10 extends TestBase1 {
             city = "Merrut";
 
     @Test
-    void successfulFillFormTest() {
+   public void testDemoQAForm () {
         step("Открываем страницу с формой ввода", () -> {
             open("https://demoqa.com/automation-practice-form");
             $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
