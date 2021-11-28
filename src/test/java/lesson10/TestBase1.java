@@ -3,6 +3,8 @@ package lesson10;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import lesson10.helpers.Attach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -17,5 +19,11 @@ public class TestBase1 {
         capabilities.setCapability("enableVNC", true); // включаем картику работы на удалённом рабочем столе
         capabilities.setCapability("enableVideo", true); // включаем запись видео
         Configuration.browserCapabilities = capabilities;
+    }
+    @AfterEach
+    public void teatDown(){
+        Attach.screenshotAs("Last Screenshot");
+        Attach.browserConsoleLogs();
+        Attach.pageSource();
     }
 }
