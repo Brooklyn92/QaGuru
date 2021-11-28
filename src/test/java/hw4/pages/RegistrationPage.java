@@ -54,7 +54,7 @@ public class RegistrationPage {
         });
         return this;
     }
-
+//===================================================================================================
     public RegistrationPage setGender(String selectGender){
         genderSet.find(byText(selectGender)).click();
         return this;
