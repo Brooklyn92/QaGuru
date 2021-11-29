@@ -39,10 +39,10 @@ public class StudentRegistrationFormWithCommentsTests {
 
 
 
-    @BeforeAll
-    static void setting(){
-        Configuration.startMaximized=true;
-    }
+    //@BeforeAll
+   // static void setting(){
+   //     Configuration.startMaximized=true;
+  //  }
 
 
     @Test

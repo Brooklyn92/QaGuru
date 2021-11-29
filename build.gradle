@@ -24,13 +24,18 @@ allure {
 dependencies {
     testImplementation(
             "org.aspectj:aspectjweaver:1.9.6",
-            "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
-            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
+            'commons-io:commons-io:2.11.0',
+            'com.codeborne:pdf-test:1.7.0',
+            'com.codeborne:xls-test:1.2',
+            'com.opencsv:opencsv:5.5.2',
+            'org.junit.jupiter:junit-jupiter:5.8.1',
+            "com.codeborne:selenide:$selenideVersion"
+    )
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.29",
-            "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+            'org.junit.jupiter:junit-jupiter-engine:5.8.1')
 }
 
 tasks.withType(JavaCompile) {

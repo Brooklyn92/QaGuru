@@ -17,11 +17,6 @@ public class TestByGitHub {
     final SelenideElement checkTitle2 =  $(byText("SoftAssertions"));
     final SelenideElement checkTextJunit =  $(".markdown-body");
 
-    @BeforeAll
-    public static void setting(){
-        Configuration.startMaximized=true;
-        Configuration.holdBrowserOpen=true;
-    }
 
     @Test
     public void homeWorkByGitHub(){

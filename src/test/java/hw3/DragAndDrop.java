@@ -16,7 +16,7 @@ public class DragAndDrop{
 
     @BeforeAll
     public static void setting(){
-        Configuration.startMaximized=true;
+        //Configuration.startMaximized=true;
         Configuration.holdBrowserOpen=true;
     }
     @Test

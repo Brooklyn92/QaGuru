@@ -1,8 +1,15 @@
 package hw4.tests;
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class StudentRegistrationTests extends TestBase {
 
+    @BeforeAll
+    public static void setting(){
+        Configuration.startMaximized=true;
+        Configuration.holdBrowserOpen=true;
+    }
     @Test
     public void testing(){
         registrationPage.openPage();
