@@ -66,7 +66,7 @@ public class YaTest {
         open("https://ya.ru/");
         $("#text").setValue(search);
         $("#text").pressEnter();
-        $$("#search-result").shouldHave(texts(expectedResult.get(0)));
+        $$("#search-result").shouldHave(texts(expectedResult.get(0)));//get(0) получить первую запись
     }
 }
 
