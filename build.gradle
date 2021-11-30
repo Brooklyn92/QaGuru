@@ -7,6 +7,10 @@ repositories {
     mavenCentral()
 }
 
+compileTestJava {
+    options.encoding("UTF-8")
+}
+
 def allureVersion = "2.16.0",
     selenideVersion = "5.24.0",
     junitVersion = "5.8.1"
