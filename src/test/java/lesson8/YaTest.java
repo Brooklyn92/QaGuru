@@ -48,7 +48,8 @@ public class YaTest {
      */
     //@EnumSource(SearchQuery.class) // позволяет параметризовать тесты по Enum.
 
-    static Stream<Arguments> CommonYaSearchTest(){
+
+    static Stream<Arguments> commonYaSearchTest() {
         return Stream.of(
                 Arguments.of("Selenide", List.of("лаконичные и стабильные UI тесты на Java")),
                 Arguments.of("Allure", List.of("Beauty Tips, Trends & Product Reviews"))
@@ -59,7 +60,7 @@ public class YaTest {
     @Tag("higth")
     @DisplayName("Search in Yandex")
     @ParameterizedTest(name = "Search in ya.ru words {0} и проверка отображения текста {1}")  //в {} прописывается индекс параметра. Параметр search имеет индекс 0
-    void CommonYaSearchTest(String search, List<String> expectedResult) { //в качестве параметра можно указывать имя класса Enum.
+    void commonYaSearchTest(String search, List<String> expectedResult) { //в качестве параметра можно указывать имя класса Enum.
         //String[] strings = search.split("_");//split - разделяет строку на подстроки используя разделитель,
         // который определяется с помощью регулярного выражения.
         //Строка "Selenide_лаконичные и стабильные UI тесты на Java" будет иметь вид "Selenide", "лаконичные и стабильные UI тесты на Java".
