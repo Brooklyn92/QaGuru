@@ -1,16 +1,12 @@
 package lesson8.hw;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Condition.text;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ParamTestAuto {
 
@@ -19,12 +15,17 @@ public class ParamTestAuto {
         Configuration.startMaximized=true;
         Configuration.holdBrowserOpen=true;
     }
-    @Test
-    public void testRiot(){
-        open("https://arcane.com/ru-ru/");
-        $("#riotbar-right-content").shouldHave(text("Вход")).click();
-        $(byName("username")).setValue("Riot73");
-        $(byName("password")).setValue("Riot73");
-        $("button[type='submit']").click();
+
+  @ParameterizedTest
+   @CsvSource( value = {
+           "Аркейн | Аркейн (сериал)",
+           "Во все тяжкие | Во все тяжкие (сериал)"
+   },
+        delimiter = '|')
+    public void testKP(String film, String title){
+        open("https://www.kinopoisk.ru/");
+        $(byName("kp_query")).setValue(film).pressEnter();
+        $$(".block_left_pad").shouldHave(CollectionCondition.texts(title));
+
     }
 }
