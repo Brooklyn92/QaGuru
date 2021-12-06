@@ -1,5 +1,5 @@
 
-package lesson10.simple;
+package lesson10_and_11.tests.simple;
 
 import org.junit.jupiter.api.Test;
 
