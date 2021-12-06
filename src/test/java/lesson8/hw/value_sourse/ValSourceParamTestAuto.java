@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ValSourseParamTestAuto {
+public class ValSourceParamTestAuto {
 
     @BeforeAll
     public static void set(){
