@@ -36,7 +36,7 @@ public class FilesTest {
     @DisplayName("Сачивание файла перед проверкой его содеражимого")
     void downloadSimpleTextFileTest() throws IOException {
         open("https://github.com/junit-team/junit5/blob/main/README.md");
-        File download = $("#raw-url").download(); // метод для скачивания файла.
+        File download = $("#raw-url").download(); // метод для скачивания файла.Можно скачивать файлы только со ссылкой с атрибутом “href”.
         String fileContent = IOUtils.toString(new FileReader(download));// подключаем библиотеку IOUtils для проверки содержимого файла
         Assertions.assertTrue(fileContent.contains("This repository is the home of the next generation of JUnit, _JUnit 5_."));// проверка условия на то, что искомый текст будет в скачеваемом файле
         //System.out.println(download.getAbsoluteFile()); - качает файл по абсолютному пути, в throws нужно прописать исклечение FileNotFoundException.
