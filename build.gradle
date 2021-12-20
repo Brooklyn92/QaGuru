@@ -1,5 +1,5 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id 'io.qameta.allure' version '2.8.1'
 }
 
@@ -14,11 +14,10 @@ compileTestJava {
 def allureVersion = "2.16.0",
     selenideVersion = "5.24.0",
     junitVersion = "5.8.1"
-
 allure {
     version = allureVersion
-    autoconfigure = true
-    aspectjweaver = true
+    //autoconfigure = true
+    //aspectjweaver = true
     configuration = "testImplementation"
     useJUnit5 {
         version = allureVersion
@@ -33,6 +32,8 @@ dependencies {
             'commons-io:commons-io:2.11.0',
             'com.codeborne:pdf-test:1.7.0',
             'com.codeborne:xls-test:1.2',
+            'com.codeborne:pdf-test:1.7.0',
+            'com.codeborne:xls-test:1.2',
             'com.opencsv:opencsv:5.5.2',
             'org.junit.jupiter:junit-jupiter:5.8.1',
             'commons-io:commons-io:2.5',
@@ -41,6 +42,7 @@ dependencies {
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.29",
             'org.junit.jupiter:junit-jupiter-engine:5.8.1')
+
 }
 
 tasks.withType(JavaCompile) {
@@ -57,4 +59,8 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}
+
+test {
+    useJUnitPlatform()
 }
