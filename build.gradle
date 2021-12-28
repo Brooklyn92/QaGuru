@@ -35,6 +35,7 @@ dependencies {
             'com.codeborne:xls-test:1.2',
             'com.opencsv:opencsv:5.5.2',
             'org.apache.poi:poi:4.1.2',
+            'org.apache.pdfbox:pdfbox:2.0.24',
             'com.opencsv:opencsv:5.5.2',
             'org.junit.jupiter:junit-jupiter:5.8.1',
             'commons-io:commons-io:2.5',

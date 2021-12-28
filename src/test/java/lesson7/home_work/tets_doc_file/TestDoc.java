@@ -1,10 +1,13 @@
 package lesson7.home_work.tets_doc_file;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.poi.xwpf.model.XWPFHeaderFooterPolicy;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTP;
@@ -12,12 +15,14 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTR;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSectPr;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTText;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 
 public class TestDoc {
-    public static void main(String[] args) {
+    @Test
+    void testDocFile() {
            try {
                FileOutputStream outputStream = new FileOutputStream("C:/testFile/docArcane.docx");
                XWPFDocument testDoc = new XWPFDocument();
@@ -105,7 +110,18 @@ public class TestDoc {
 
         */
     }
+    @Test
+    void testPDFRead() {
+        try {
+        File file = new File("src/test/resources/163902.pdf");
+        PDDocument document = PDDocument.load(file);
+        PDFTextStripper pdfStripper = new PDFTextStripper();
+        String text = pdfStripper.getText(document);
+        Assertions.assertEquals(true, text.contains("600000, Владимирская обл, г Владимир"));
+        document.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
-
-//"C:/testFile/docArcane.docx")
