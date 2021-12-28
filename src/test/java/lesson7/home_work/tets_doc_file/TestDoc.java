@@ -110,6 +110,7 @@ public class TestDoc {
 
         */
     }
+    @DisplayName("Чтение PDF-файла")
     @Test
     void testPDFRead() {
         try {
