@@ -11,16 +11,12 @@ import java.io.IOException;
 public class TestPDF {
     @DisplayName("Чтение PDF-файла")
     @Test
-    void testPDFRead() {
-        try {
+    void testPDFRead() throws IOException {
             File file = new File("src/test/resources/163902.pdf");
             PDDocument document = PDDocument.load(file);
             PDFTextStripper pdfStripper = new PDFTextStripper();
             String text = pdfStripper.getText(document);
-            Assertions.assertEquals(true, text.contains("600000, Владимирская обл, г Владимир"));
+            Assertions.assertTrue(text.contains("600000, Владимирская обл, г Владимир"));
             document.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
