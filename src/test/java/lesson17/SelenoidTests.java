@@ -7,6 +7,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SelenoidTests {
     // make request to https://selenoid.autotests.cloud/status
@@ -78,6 +79,33 @@ public class SelenoidTests {
         System.out.println(response.path("total") + "");
         System.out.println(response.path("total").toString());
         System.out.println(response.path("browsers.chrome").toString());
+    }
+
+    @Test
+    void checkTotal20WithAssertJ() {
+        Integer response =
+                get("https://selenoid.autotests.cloud/status")
+                        .then()
+                        .extract()
+                        .path("total");
+        System.out.println(response);
+        assertThat(response).isEqualTo(20);
+    }
+
+    @Test
+    void checkWdHubStatusStatus401() {
+        get("https://selenoid.autotests.cloud/wd/hub/status")
+                .then()
+                .statusCode(401);
+    }
+
+    @Test
+    void checkWdHubStatusStatus200WithAuth() {
+        given()
+                .auth().basic("user1", "1234") // авторизация
+                .get("https://selenoid.autotests.cloud/wd/hub/status")
+                .then()
+                .statusCode(200);
     }
 }
 
