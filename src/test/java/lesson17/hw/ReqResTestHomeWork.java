@@ -1,11 +1,8 @@
 package lesson17.hw;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
@@ -32,6 +29,7 @@ public class ReqResTestHomeWork {
                 .body("id", is(4))
                 .body("token", is("QpwL5tke4Pnpja7X4"));
     }
+
     @Test
     void create() {
         String data = "{ \"name\": \"morpheus\", \"job\": \"leader\" }";
@@ -68,9 +66,8 @@ public class ReqResTestHomeWork {
         assertEquals("{}", response.asString());
     }
 
-
     @Test
-     void checkIdInLists() {
+     void checkUpdate() {
         String data = "{ \"name\": \"morpheus\", \"job\": \"zion resident\" }";
         given()
                 .contentType(JSON)
@@ -82,5 +79,4 @@ public class ReqResTestHomeWork {
                 .body("name", is("morpheus"))
                 .body("job", is("zion resident"));
     }
-
 }
