@@ -4,6 +4,8 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
@@ -64,6 +66,21 @@ public class ReqResTestHomeWork {
                 .extract()
                 .response();
         assertEquals("{}", response.asString());
+    }
+
+
+    @Test
+     void checkIdInLists() {
+        String data = "{ \"name\": \"morpheus\", \"job\": \"zion resident\" }";
+        given()
+                .contentType(JSON)
+                .body(data)
+                .when()
+                .put("api/users/2")
+                .then()
+                .statusCode(200)
+                .body("name", is("morpheus"))
+                .body("job", is("zion resident"));
     }
 
 }
