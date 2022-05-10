@@ -17,7 +17,7 @@ def allureVersion = "2.16.0",
 
 allure {
     version = allureVersion
-    //autoconfigure = true
+    autoconfigure = true
     //aspectjweaver = true
     configuration = "testImplementation"
     useJUnit5 {

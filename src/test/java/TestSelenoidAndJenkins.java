@@ -1,14 +1,13 @@
-package hw3;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.BeforeAll;
+import lesson10_and_11.TestBase1;
 import org.junit.jupiter.api.Test;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestByGitHub {
+public class TestSelenoidAndJenkins extends TestBase1 {
 
     final SelenideElement openWiki =  $("#wiki-tab");
     final SelenideElement checkTitle = $(byText("Welcome to the selenide wiki!"));
@@ -17,9 +16,8 @@ public class TestByGitHub {
     final SelenideElement checkTitle2 =  $(byText("SoftAssertions"));
     final SelenideElement checkTextJunit =  $(".markdown-body");
 
-
     @Test
-    public void homeWorkByGitHub() {
+    public void homeWorkByGitHub(){
         open("https://github.com/selenide/selenide");
         openWiki.click();
         checkTitle.shouldHave(visible);
@@ -28,4 +26,5 @@ public class TestByGitHub {
         checkTitle2.shouldHave(visible);
         checkTextJunit.shouldHave(text("JUnit5 extension"));
     }
+
 }
