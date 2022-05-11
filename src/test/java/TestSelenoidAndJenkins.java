@@ -1,4 +1,5 @@
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lesson10_and_11.TestBase1;
 import org.junit.jupiter.api.Test;
@@ -25,6 +26,7 @@ public class TestSelenoidAndJenkins extends TestBase1 {
         pageSoftAssertion.findBy(text("SoftAssertions")).click();
         checkTitle2.shouldHave(visible);
         checkTextJunit.shouldHave(text("JUnit5 extension"));
+        Selenide.sleep(10000);
     }
 
 }
