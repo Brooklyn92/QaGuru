@@ -67,4 +67,5 @@ tasks.withType(Test) {
 
 test {
     useJUnitPlatform()
+    maxParallelForks(3)
 }

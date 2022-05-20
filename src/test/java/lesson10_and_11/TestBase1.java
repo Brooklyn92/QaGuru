@@ -14,7 +14,8 @@ public class TestBase1 {
         //SelenideLogger.addListener("AllureSelenide", new AllureSelenide()); // отображает все методы в Allure
         Configuration.startMaximized = true; // разворачивает браузер во все экран
         //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";//запуск в селенойде(?)
-        Configuration.remote = "http://127.0.0.1:4444/wd/hub";//локальный селенойд
+        //Configuration.remote = "http://127.0.0.1:4444/wd/hub";//локальный селенойд
+        Configuration.remote = "http://localhost:4444/wd/hub/";//локальный селенойд
         //подключаем для selenoid свойства
         DesiredCapabilities capabilities = new DesiredCapabilities(); // описывает дополнительные характеристики для Web driver при помощи пары ключ-значение
         capabilities.setCapability("enableVNC", true); // включаем картику работы на удалённом рабочем столе
