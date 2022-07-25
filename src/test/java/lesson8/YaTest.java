@@ -68,6 +68,7 @@ public class YaTest {
         $("#text").setValue(search);
         $("#text").pressEnter();
         $$("#search-result").shouldHave(texts(expectedResult.get(0)));//get(0) получить первую запись
+
     }
 }
 
